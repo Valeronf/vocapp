@@ -1,0 +1,42 @@
+{% extends 'words/base.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Translation App</title>
+</head>
+<body>
+
+    <h1>Word Translation App</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
+
+    <h2>Theme List</h2>
+    <ul>
+        {% for theme in themes %}
+            <div style="max-width: 600px;" class="shadow card">
+                <div class="card-body">
+                    <a href="{% url 'word_list' theme.id %}">{{ theme.name }} --- {{ theme.date }}</a>
+                </div>
+                <div class="form-inline">
+                    <a class="btn btn-danger btn-sm" href="{% url 'delete_theme' theme.id %}">Delete</a>
+                    <a class="btn btn-success btn-sm" href="{% url 'update_theme' theme.id %}">Update</a>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,7 @@
+body {
+    background-image: url('/static/images/back_ground.jpg'); /* Adjust the path accordingly */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: 000000; /* Set text color to white or an appropriate color */
+}
