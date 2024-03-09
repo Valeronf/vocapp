@@ -15,6 +15,7 @@ class Theme(models.Model):
 class Word(models.Model):
     original_word = models.CharField(max_length=100)
     translated_word = models.CharField(max_length=100)
+    transcription = models.CharField(max_length=100, default='')
     timestamp = models.DateTimeField(auto_now_add=True)
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
     def __str__(self):
